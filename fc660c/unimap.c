@@ -2,12 +2,13 @@
 #include "actionmap.h"
 #include "hook.h"
 #include "fc660c.h"
+
 /*
 cd /mnt/c/tmk_keyboard/keyboard/fc660c
 make clean
 make
-
 */
+
 #define AC_L0       ACTION_LAYER_MOMENTARY(0)
 #define AC_L1       ACTION_LAYER_MOMENTARY(1)
 #define AC_L2       ACTION_LAYER_TOGGLE(2)
