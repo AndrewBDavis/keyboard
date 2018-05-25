@@ -2,7 +2,7 @@ I REALLY DON'T KNOW WHAT I AM DOING BUT I GOT IT TO WORK
 
 This is MUCH easier in Linux, please refer to this reddit post for instructions <https://redd.it/4grnfa> archived version -> <https://archive.is/hTo0G>
 
-These instructions are for the user with the Windows 10 Bash on Ubuntu subsystem trying to compile TMK for the IC Infinity. This is meant to be used in conjuction with https://github.com/AndrewBDavis/tmk_core_infinity
+These instructions are for the user with the Windows 10 Bash on Ubuntu subsystem trying to compile TMK for the IC Infinity keyboard without LEDs. This is meant to be used in conjuction with https://github.com/AndrewBDavis/tmk_core_infinity
 
 •Download [tmk_core_infinity](https://github.com/AndrewBDavis/tmk_core_infinity) and place it inside [tmk_keyboard](https://github.com/tmk/tmk_keyboard)
 
