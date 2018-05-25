@@ -22,7 +22,7 @@ by changing it to
 	
 	TMK_DIR = ../../tmk_core_infinity
 
-•Once you have customized your keymap in keymap_plain.c then run the following commands to compile:
+•Once you have customized your keymap in keymap_plain.c (keymap_hasu.c is good for reference) then run the following commands to compile:
 
 	cd tmk_keyboard/keyboard/infinity_chibios
 	make -f Makefile clean
