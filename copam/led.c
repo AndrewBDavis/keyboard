@@ -27,3 +27,16 @@ void led_set(uint8_t usb_led) {
     }
 }
 
+/* To disable the lit numlock led when computer is sleeping:
+Set SLEEP_LED_ENABLE = yes in makefile
+
+Go to tmk_keyboard\tmk_core\common\avr\sleep_led.c
+
+led_set(1<<USB_LED_NUM_LOCK);
+
+static const uint8_t breathing_table[64] PROGMEM = {
+255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
+255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
+255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
+255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,};
+*/
