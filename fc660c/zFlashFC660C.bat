@@ -1,4 +1,4 @@
-cd C:\tmk_keyboard\dfu-programmer-win-0.7.2 
+cd C:\tmk_keyboard\dfu-programmer 
 
 dfu-programmer.exe atmega32u4 erase --force
 
