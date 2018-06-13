@@ -3,6 +3,7 @@
 #include "hook.h"
 #include "fc660c.h"
 
+
 /*
 cd /mnt/c/tmk_keyboard/keyboard/fc660c
 make clean
@@ -25,7 +26,7 @@ const action_t actionmaps[][UNIMAP_ROWS][UNIMAP_COLS] PROGMEM = {
 	TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,	BSPC,	DEL,
 	LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     	ENT,
 	LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          	RSFT,	UP,
-	LCTL,LGUI,LALT,          SPC,                     LALT, L1,  L3, 		LEFT,DOWN,RGHT
+	L2,LGUI,LALT,          SPC,                     LALT, L1,  L3, 		LEFT,DOWN,RGHT
     ),
     
 [1] = KMAP(
@@ -33,15 +34,15 @@ const action_t actionmaps[][UNIMAP_ROWS][UNIMAP_COLS] PROGMEM = {
 	CAPS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,PAUS,SLCK,PSCR,  UP,PGDN,	PGUP,	TRNS,
 	TRNS,	TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,HOME,LEFT,RGHT,	TRNS,
 	TRNS,	 TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS, END,DOWN,		TRNS,	TRNS,
-	TRNS,TRNS,TRNS,          TRNS,                     TRNS,TRNS,  L2,		TRNS,TRNS,TRNS
+	TRNS,TRNS,TRNS,          TRNS,                     TRNS,TRNS,TRNS,		TRNS,TRNS,TRNS
 	),
 	
 [2] = KMAP(
 	TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  NO,PSLS,PAST,TRNS,TRNS,	TRNS,	TRNS,
-	TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  P7,  P8,  P9,PMNS,PGDN,	PGUP,	TRNS,
+	TRNS, TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  P7,  P8,  P9,PMNS,  NO,	TRNS,	TRNS,
 	TRNS,	TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  P4,  P5,  P6,PPLS,	TRNS,
 	TRNS,	 TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,  P1,  P2,  P3,		TRNS,	TRNS,
-	TRNS,TRNS,  L3,          TRNS,                       P0,PDOT,  L2,		TRNS,TRNS,TRNS
+	TRNS,TRNS,  L3,          TRNS,                       P0,PDOT,  L3,		TRNS,TRNS,TRNS
     ),
     
 [3] = KMAP(
@@ -55,10 +56,10 @@ const action_t actionmaps[][UNIMAP_ROWS][UNIMAP_COLS] PROGMEM = {
 
 void hook_layer_change(uint32_t layer_state)
 {
-    // lights LED on Insert when layer 1 is enabled
+    // lights LED on Caps when layer 2 is enabled
     if (layer_state & (1L<<2)) {
 	PORTB &= ~(1<<6);
     } else {
-		PORTB |=  (1<<6);
+	PORTB |=  (1<<6);
     }
 }
