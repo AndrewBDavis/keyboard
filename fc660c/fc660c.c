@@ -129,9 +129,9 @@ matrix_row_t matrix_get_row(uint8_t row)
 void led_set(uint8_t usb_led)
 {
     if (usb_led & (1<<USB_LED_SCROLL_LOCK)) {
-        PORTB |=  (1<<6);
+        PORTB |=  (1<<5);
     } else {
-        PORTB &= ~(1<<6);
+        PORTB &= ~(1<<5);
     }
 }
 
