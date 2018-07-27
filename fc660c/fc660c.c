@@ -18,6 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /*
  * scan matrix
  */
+
 #include <stdint.h>
 #include <stdbool.h>
 #include <util/delay.h>
@@ -28,7 +29,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "matrix.h"
 #include "led.h"
 #include "fc660c.h"
-
 
 static uint32_t matrix_last_modified = 0;
 
@@ -49,7 +49,7 @@ void matrix_init(void)
 
     KEY_INIT();
 
-    // LEDs on CapsLock and Insert
+    // LEDs For Numpad Layer and Caps Lock
     DDRB  |= (1<<5) | (1<<6);
     PORTB |= (1<<5) | (1<<6);
 
@@ -129,9 +129,9 @@ matrix_row_t matrix_get_row(uint8_t row)
 void led_set(uint8_t usb_led)
 {
     if (usb_led & (1<<USB_LED_SCROLL_LOCK)) {
-        PORTB |=  (1<<5);
+	PORTB &= ~(1<<5);
     } else {
-        PORTB &= ~(1<<5);
+	PORTB |=  (1<<5);
     }
 }
 

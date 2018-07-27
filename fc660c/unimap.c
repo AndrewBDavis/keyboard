@@ -25,7 +25,7 @@ const action_t actionmaps[][UNIMAP_ROWS][UNIMAP_COLS] PROGMEM = {
 	ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, 	BSLS,	INS,
 	TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,	BSPC,	DEL,
 	LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN,QUOT,     	ENT,
-	LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH,          	RSFT,	UP,
+	LSFT,Z,   X,   C,   V,   B,   N,   M,   COMM, DOT,SLSH,          	RSFT,	UP,
 	L2,LGUI,LALT,          SPC,                     LALT, L1,  L3, 		LEFT,DOWN,RGHT
     ),
     
@@ -49,7 +49,7 @@ const action_t actionmaps[][UNIMAP_ROWS][UNIMAP_COLS] PROGMEM = {
 	TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,   9,   0,TRNS,TRNS,	TRNS,	TRNS,
 	TRNS, TRNS,  UP,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LBRC,RBRC,	TRNS,	TRNS,
 	TRNS,  LEFT,DOWN,RGHT,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,		TRNS,
-	LSFT,	TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,		TRNS,	TRNS,
+	LSFT,	TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,COMM, DOT,SLSH,		TRNS,	TRNS,
 	TRNS,TRNS,TRNS,          TRNS,                     TRNS,TRNS,TRNS,		TRNS,TRNS,TRNS
     ),
 };
