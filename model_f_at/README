@@ -19,7 +19,7 @@ And VCC and GND, of course. See RESOURCE for keyboard connector pin assign.
 
 BUILD
 -----
-cd /mnt/c/tmk_keyboard/converter/terminal_usb
+cd /mnt/c/tmk_keyboard/keyboard/model_f_at
 make clean
 make
 
