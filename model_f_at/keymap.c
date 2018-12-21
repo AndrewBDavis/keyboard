@@ -126,8 +126,15 @@ const uint8_t PROGMEM fn_keycode[] = {
 };
 */
 
+/*
+cd /mnt/c/tmk_keyboard/keyboard/model_f_at
+make clean
+make
+*/
+
 const action_t PROGMEM fn_actions[] = {
 	[1] = ACTION_LAYER_MOMENTARY(1),
+	[2] = ACTION_LAYER_TOGGLE(2),
 };
 
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -157,50 +164,44 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                      F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
                      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,
 				 
-	F1,  F2,  ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,  EQL, NO,  BSLS,  TRNS, TRNS, TRNS,  DEL, PSLS, PAST,  EQL,
-	F3,  F4,  TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC,    BSPC,  TRNS, TRNS, TRNS,  P7,    P8,   P9, PPLS,
-	F5,  F6,  LCTL,    A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,     NO,ENT, 		TRNS,        P4,    P5,   P6, PCMM,
-	F7,  F8,  LSFT,NO,   Z,   X,   C,   V,   B,   N,   M,   COMM, DOT, SLSH,       NO,RSFT,  TRNS, TRNS, TRNS,  P1,    P2,   P3, PENT,
-	F9, F10,  LGUI,     LALT,			SPC,						  FN1,     RGUI,		TRNS,        NO,    P0, PDOT,  NO),
+	F1,  F2,  ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,  EQL, NO,  BSLS,  TRNS, TRNS, TRNS,  DEL,  PSLS, PAST,  EQL,
+	F3,  F4,  TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC,    BSPC,  TRNS, TRNS, TRNS,  HOME,   UP, PGUP, PPLS,
+	F5,  F6,  LCTL,    A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,     NO,ENT, 		TRNS,        LEFT, DOWN, RGHT, PCMM,
+	F7,  F8,  LSFT,NO,   Z,   X,   C,   V,   B,   N,   M,   COMM, DOT, SLSH,       NO,RSFT,  TRNS, TRNS, TRNS,  END,  DOWN, PGDN, PENT,
+	F9, F10,  LGUI,     LALT,			SPC,						  FN1,	   FN2,		TRNS,        NO,    P0,  PDOT,  NO),
     
     /* layer 1 */
 	KEYMAP(
                      F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
                      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,
 
-	F11,   F12,  GRV,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12, TRNS, TRNS,  TRNS, TRNS, TRNS,  NLCK, SLCK, PAUS, PAUS,
+	F11,   F12,  GRV,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12, TRNS, TRNS,  TRNS, TRNS, TRNS,  NLCK, SLCK, TRNS, TRNS,
 	TRNS, TRNS,  CAPS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  INS, SLCK, PSCR,   UP, PGDN, 	 PGUP,  TRNS, TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS,
-	TRNS, TRNS,  TRNS,	TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, HOME, LEFT, RGHT,	   NO,TRNS,	    TRNS,		  TRNS, TRNS, TRNS, TRNS,
+	TRNS, TRNS,  TRNS,	TRNS, TRNS, TRNS, PAUS, TRNS, TRNS, TRNS, TRNS, HOME, LEFT, RGHT,	   NO,TRNS,	    TRNS,		  TRNS, TRNS, TRNS, TRNS,
 	TRNS, TRNS,  LSFT,NO, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, END, DOWN,     	   NO,RSFT,  TRNS, TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS,
 	TRNS, TRNS,  TRNS,		TRNS, 					TRNS,					TRNS,	 TRNS,	    TRNS,        TRNS, TRNS, TRNS, TRNS),
+	
+	/* layer 2 */
+	KEYMAP(
+                     F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
+                     F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,
+				 
+	F1,  F2,  ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,  EQL, NO,  BSLS,  TRNS, TRNS, TRNS,  DEL, PSLS, PAST,  EQL,
+	F3,  F4,  TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC,    BSPC,  TRNS, TRNS, TRNS,  P7,    P8,   P9, PPLS,
+	F5,  F6,  LCTL,    A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,     NO,ENT, 		TRNS,        P4,    P5,   P6, PCMM,
+	F7,  F8,  LSFT,NO,   Z,   X,   C,   V,   B,   N,   M,   COMM, DOT, SLSH,       NO,RSFT,  TRNS, TRNS, TRNS,  P1,    P2,   P3, PENT,
+	F9, F10,  LGUI,     LALT,			SPC,						  FN1,       FN2,		TRNS,        NO,    P0, PDOT,  NO),
 
-/* 101-key keymaps
- */
-    /* 0: default
-     * ,---.   ,---------------. ,---------------. ,---------------. ,-----------.
-     * |Esc|   |F1 |F2 |F3 |F4 | |F5 |F6 |F7 |F8 | |F9 |F10|F11|F12| |PrS|ScL|Pau|
-     * `---'   `---------------' `---------------' `---------------' `-----------'
-     * ,-----------------------------------------------------------. ,-----------. ,---------------.
-     * |  `|  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|  -|  =|Backspa| |Ins|Hom|PgU| |NmL|  /|  *|  -|
-     * |-----------------------------------------------------------| |-----------| |---------------|
-     * |Tab  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|  [|  ]|    \| |Del|End|PgD| |  7|  8|  9|   |
-     * |-----------------------------------------------------------| `-----------' |-----------|  +|
-     * |CapsLo|  A|  S|  D|  F|  G|  H|  J|  K|  L|  ;|  '|Return  |               |  4|  5|  6|   |
-     * |-----------------------------------------------------------|     ,---.     |---------------|
-     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  ,|  ,|  /|Shift     |     |Up |     |  1|  2|  3|   |
-     * |-----------------------------------------------------------| ,-----------. |-----------|Ent|
-     * |Ctrl|    |Alt |          Space              |Alt |    |Ctrl| |Lef|Dow|Rig| |      0|  .|   |
-     * `----'    `---------------------------------------'    `----' `-----------' `---------------'
-     */
 /*
-    KEYMAP_101(
-     ESC,       F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9, F10, F11, F12,     PSCR,SLCK, BRK,
-
-     GRV,   1,   2,   3,   4,   5,   6,   7,   8,   9,   0,MINS, EQL,BSPC,      INS,HOME,PGUP,     NLCK,PSLS,PAST,PMNS,
-     TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,LBRC,RBRC,BSLS,      DEL, END,PGDN,       P7,  P8,  P9,
-    CAPS,   A,   S,   D,   F,   G,   H,   J,   K,   L,SCLN,QUOT,      ENT,                           P4,  P5,  P6,PPLS,
-    LSFT,        Z,   X,   C,   V,   B,   N,   M,COMM, DOT,SLSH,     RSFT,            UP,            P1,  P2,  P3,
-    LCTL,     LALT,                SPC,                    RALT,     RCTL,     LEFT,DOWN,RGHT,       P0,     PDOT,PENT
-    ),
+	KEYMAP(
+                     F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
+                     F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,
+				 
+	F1,  F2,  ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,  EQL, NO,  BSLS,  TRNS, TRNS, TRNS,  DEL, PSLS, PAST,  EQL,
+	F3,  F4,  TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC,    BSPC,  TRNS, TRNS, TRNS,  P7,    P8,   P9, PPLS,
+	F5,  F6,  LCTL,    A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,     NO,ENT, 		TRNS,        P4,    P5,   P6, PCMM,
+	F7,  F8,  LSFT,NO,   Z,   X,   C,   V,   B,   N,   M,   COMM, DOT, SLSH,       NO,RSFT,  TRNS, TRNS, TRNS,  P1,    P2,   P3, PENT,
+	F9, F10,  LGUI,     LALT,			SPC,						  FN1,       FN2,		TRNS,        NO,    P0, PDOT,  NO),
 */
 };
+

@@ -18,21 +18,38 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "stdint.h"
 #include "ps2.h"
 #include "led.h"
-
+#include "hook.h"
+#include "action.h"
+#include "actionmap.h"
 
 void led_set(uint8_t usb_led)
 {
     uint8_t ps2_led = 0;
-	if (usb_led &  (1<<USB_LED_SCROLL_LOCK))
-		ps2_led |= (1<<PS2_LED_SCROLL_LOCK);
-   
-	if (usb_led &  (1<<USB_LED_NUM_LOCK))
+	/*if (usb_led &  (1<<USB_LED_NUM_LOCK))
 		ps2_led &= ~(1<<PS2_LED_NUM_LOCK);
 	else
 		ps2_led |= (1<<PS2_LED_NUM_LOCK);
-	
+	*/
+	if (usb_led &  (1<<USB_LED_SCROLL_LOCK))
+		ps2_led |= (1<<PS2_LED_SCROLL_LOCK);
+
 	if (usb_led &  (1<<USB_LED_CAPS_LOCK))
 		ps2_led |= (1<<PS2_LED_CAPS_LOCK);
 	
     ps2_host_set_led(ps2_led);
+}
+#define AC_L0       ACTION_LAYER_MOMENTARY(0)
+#define AC_L1       ACTION_LAYER_MOMENTARY(1)
+#define AC_L2       ACTION_LAYER_TOGGLE(2)
+
+void hook_layer_change(uint32_t layer_state)
+{
+	uint32_t ps2_led = 0;
+	
+	if (layer_state & (1L<<1))
+		ps2_led |= (1<<PS2_LED_NUM_LOCK);
+	else 
+		ps2_led &= ~(1<<PS2_LED_NUM_LOCK);
+	
+	ps2_host_set_led(ps2_led);
 }
