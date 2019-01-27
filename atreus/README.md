@@ -4,7 +4,7 @@ The [Atreus](https://atreus.technomancy.us) is a small mechanical
 column-staggered ergonomic keyboard, usually built from a kit.
 
 I have modified parts of [Technomancy's Atreus TMK firmware fork](https://github.com/technomancy/tmk_keyboard) to work with Hasu's original tmk_core files.
-The layout should is now more easily configurable any and all layers can be edited in the keymap.c file.  
+The layout should is now more easily configurable as all layers can be edited in the keymap.c file.  
 
 This repository contains firmware (called TMK) loaded into its
 controller to make the keyboard function. You can also use it to
