@@ -26,8 +26,8 @@ KEYMAP(
 	/* layer 1 */	
 KEYMAP(	
 	GRV,     7,    8,    9,    0,				  LBRC, RBRC,   UP, TRNS,  DEL, \
-	TRNS,    4,    5,    6, TRNS,	 			  HOME, LEFT, DOWN, RGHT, PGUP, \
-	TRNS,    1,    2,    3,  INS, 			   END, TRNS, TRNS, TRNS, PGDN, \
+	TRNS,    4,    5,    6, PRNT,	 			  HOME, LEFT, DOWN, RGHT, PGUP, \
+	TRNS,    1,    2,    3, SLCK, 			   END,  INS, TRNS, TRNS, PGDN, \
 	FN2,  CAPS, TRNS, TRNS, TRNS, TRNS,  	 LALT, TRNS, TRNS,  EQL, TRNS, TRNS),
 	
 	/* layer 2 */	
