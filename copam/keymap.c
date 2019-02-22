@@ -8,7 +8,8 @@ make
 
 const action_t PROGMEM fn_actions[] = {
 	[1] = ACTION_LAYER_TAP_KEY(1, KC_LEFT),
-	[2] = ACTION_LAYER_TOGGLE(2),
+	[2] = ACTION_LAYER_TOGGLE(2), //Pertains to FN2 - Set up so it acts similar to num lock except with T-nav
+	[3] = ACTION_LAYER_MOMENTARY(3) 
 	
 	
 };
