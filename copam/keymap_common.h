@@ -13,9 +13,9 @@
 #include "debug.h"
 #include "keymap.h"
 
-
 extern const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS];
 extern const action_t fn_actions[];
+
 
 #define KEYMAP( \
     K000, K001, K002, K003, K004, K005, K006, K007, K008, K009, K010, K011, K012, K013, K014, K015, K016, K017, K018, K019, K020, \

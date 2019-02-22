@@ -17,7 +17,6 @@ static uint8_t debouncing = DEBOUNCE;
 static matrix_row_t matrix[MATRIX_ROWS];
 static matrix_row_t matrix_debouncing[MATRIX_ROWS];
 
-
 static matrix_row_t read_cols(void);
 static void init_cols(void);
 static void unselect_rows(void);

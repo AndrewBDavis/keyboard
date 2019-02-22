@@ -10,7 +10,11 @@ TARGET_DIR = .
 # project specific files
 SRC =	keymap_common.c	matrix.c	led.c
 
-SRC := keymap.c $(SRC)
+ifdef KEYMAP
+    SRC := keymap_$(KEYMAP).c $(SRC)
+else
+    SRC := keymap.c $(SRC)
+endif
 
 CONFIG_H = config.h
 
