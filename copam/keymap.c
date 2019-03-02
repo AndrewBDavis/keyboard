@@ -1,8 +1,6 @@
 #include "keymap_common.h"
 
 /*
-keycode BTLD will put it in bootloader mode
-
 cd /mnt/c/tmk_keyboard/keyboard/copam
 make clean
 make
@@ -10,7 +8,7 @@ make
 
 const action_t PROGMEM fn_actions[] = {
 	[1] = ACTION_LAYER_TAP_KEY(1, KC_LEFT), //The FN1 key acts as the LEFT arrow key when tapped but accesses layer 1 when held
-	[2] = ACTION_LAYER_TOGGLE(2), //Pertains to FN2 - Set up so it acts similar to num lock except with T-nav
+	[2] = ACTION_LAYER_TOGGLE(2), //Pertains to FN2 - Set up so it acts similar to num lock except with T-nav instead of cross-nav
 	[3] = ACTION_LAYER_MOMENTARY(3) 
 
 	
@@ -18,7 +16,7 @@ const action_t PROGMEM fn_actions[] = {
 
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	
-	/* layer 0 */	
+	/* layer 0 (Base Layer) */	
 KEYMAP(
 	F5,  PSCR, 	ESC,   1,   2,   3,   4,   5,   6,   7,   8,   9,   0, MINS,  EQL,  GRV,	BSLS,	DEL,	 PSLS, PAST, EQL, \
 	SLCK, FN2,	TAB,    Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, LBRC, RBRC,		BSPC,	HOME,   UP, PGUP, PMNS,\
@@ -26,7 +24,7 @@ KEYMAP(
 	HOME,PGDN,	LSFT,   Z,   X,   C,   V,   B,   N,   M, COMM,  DOT, SLSH,				RSFT,	END,  DOWN, PGDN,	   \
 	END,	 DEL,	LGUI, LALT,				SPC,					  FN1, DOWN,   UP, 	RGHT,   	INS,         DEL, PENT),
 	
-	/* layer 1 */
+	/* layer 1 (function layer) */
 KEYMAP(
 	TRNS, TRNS,  GRV,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12, TRNS, TRNS, 	NLCK, SLCK, PAUS, TRNS, \
 	TRNS, TRNS,  CAPS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  INS, SLCK, PSCR,   UP, PGDN,	 PGUP, 	TRNS, TRNS, TRNS, PSCR, \
@@ -34,7 +32,7 @@ KEYMAP(
 	TRNS, TRNS,    LSFT, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  END, DOWN,			 RSFT, 	TRNS, TRNS, TRNS,       \
 	TRNS, TRNS, TRNS, TRNS,                   TRNS,                               TRNS, TRNS, TRNS, TRNS, 	TRNS,       TRNS, TRNS  ),
 	
-	/* layer 2 */
+	/* layer 2 (numlock layer) */
 KEYMAP(
 	TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, 	TRNS, TRNS, TRNS, TRNS, \
 	TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,      TRNS, 	P7,	   P8,   P9, TRNS, \
