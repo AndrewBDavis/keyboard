@@ -46,7 +46,7 @@ KEYMAP(
 	SLCK, FN2,	TAB,    Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, LBRC, RBRC,		BSPC,	P7,    P8,   P9, PMNS, \
 	INS, PGUP,	LCTL,   A,   S,   D,   F,   G,   H,   J,    K,    L, SCLN, QUOT,		 ENT,	P4,    P5,   P6, PPLS, \
 	HOME,PGDN,	LSFT,   Z,   X,   C,   V,   B,   N,   M, COMM,  DOT, SLSH,			RSFT,	P1,    P2,   P3,       \
-	END,  DEL,	LGUI, LALT,				SPC,			FN1, DOWN,  UP, RGHT,   P0,	   PDOT, PENT  ),
+	END,  DEL,	LGUI, LALT,			SPC,				FN1, DOWN,  UP, RGHT,   P0,	   PDOT, PENT  ),
 };
 
 /*
