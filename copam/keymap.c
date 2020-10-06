@@ -4,6 +4,7 @@
 cd /mnt/c/tmk_keyboard/keyboard/copam
 make clean
 make
+Left shift + Right shift + Pause puts teensy in bootloader mode
 */
 
 const action_t PROGMEM fn_actions[] = {
