@@ -25,11 +25,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 void led_set(uint8_t usb_led)
 {
     uint8_t ps2_led = 0;
-	/*if (usb_led &  (1<<USB_LED_NUM_LOCK))
-		ps2_led &= ~(1<<PS2_LED_NUM_LOCK);
-	else
-		ps2_led |= (1<<PS2_LED_NUM_LOCK);
-	*/
+/*	if (ps2_led |= (1<<PS2_LED_NUM_LOCK))
+		usb_led &  (1<<USB_LED_NUM_LOCK);
+*/	
 	if (usb_led &  (1<<USB_LED_SCROLL_LOCK))
 		ps2_led |= (1<<PS2_LED_SCROLL_LOCK);
 
@@ -46,10 +44,9 @@ void hook_layer_change(uint32_t layer_state)
 {
 	uint32_t ps2_led = 0;
 	
-	if (layer_state & (1L<<1))
+	if (layer_state & (1L<<2))
 		ps2_led |= (1<<PS2_LED_NUM_LOCK);
 	else 
-		ps2_led &= ~(1<<PS2_LED_NUM_LOCK);
-	
+		ps2_led &= ~(1<<PS2_LED_NUM_LOCK);	
 	ps2_host_set_led(ps2_led);
 }

@@ -1,5 +1,5 @@
 # Target file name (without extension).
-TARGET = terminal_lufa
+TARGET = model_f_at
 
 # Directory common source filess exist
 TMK_DIR = ../../tmk_core
@@ -69,7 +69,7 @@ OPT_DEFS += -DBOOTLOADER_SIZE=4096
 #EXTRAKEY_ENABLE = yes	# Audio control and System control(+450)
 CONSOLE_ENABLE = yes	# Console for debug(+400)
 COMMAND_ENABLE = yes    # Commands for debug and configuration
-#SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
+SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
 #NKRO_ENABLE = yes	# USB Nkey Rollover
 
 

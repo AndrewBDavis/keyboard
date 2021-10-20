@@ -13,6 +13,10 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+cd /mnt/c/tmk_keyboard/keyboard/model_f_at
+make clean
+make
 */
 
 #include <stdint.h>
@@ -22,8 +26,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "debug.h"
 #include "util.h"
 #include "keymap.h"
-
-
 
 
 /* 
@@ -135,6 +137,7 @@ make
 const action_t PROGMEM fn_actions[] = {
 	[1] = ACTION_LAYER_MOMENTARY(1),
 	[2] = ACTION_LAYER_TOGGLE(2),
+	[3] = ACTION_LAYER_MOMENTARY(3),
 };
 
 const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -159,7 +162,7 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * `-------' `----'    `---------------------------------------'    `----'     `---'     `---------------'
      */
 
-    /* layer 0 */
+//L0
 	KEYMAP(
                      F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
                      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,
@@ -169,8 +172,8 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	F5,  F6,  LCTL,    A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,     NO,ENT, 		TRNS,        LEFT, DOWN, RGHT, PCMM,
 	F7,  F8,  LSFT,NO,   Z,   X,   C,   V,   B,   N,   M,   COMM, DOT, SLSH,       NO,RSFT,  TRNS, TRNS, TRNS,  END,  DOWN, PGDN, PENT,
 	F9, F10,  LGUI,     LALT,			SPC,						  FN1,	   FN2,		TRNS,        NO,    P0,  PDOT,  NO),
-    
-    /* layer 1 */
+
+//L1
 	KEYMAP(
                      F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
                      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,
@@ -179,9 +182,9 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	TRNS, TRNS,  CAPS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  INS, SLCK, PSCR,   UP, PGDN, 	 PGUP,  TRNS, TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS,
 	TRNS, TRNS,  TRNS,	TRNS, TRNS, TRNS, PAUS, TRNS, TRNS, TRNS, TRNS, HOME, LEFT, RGHT,	   NO,TRNS,	    TRNS,		  TRNS, TRNS, TRNS, TRNS,
 	TRNS, TRNS,  LSFT,NO, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, END, DOWN,     	   NO,RSFT,  TRNS, TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS,
-	TRNS, TRNS,  TRNS,		TRNS, 					TRNS,					TRNS,	 TRNS,	    TRNS,        TRNS, TRNS, TRNS, TRNS),
+	TRNS, TRNS,  TRNS,		TRNS, 					TRNS,				TRNS,	 	 TRNS,	    TRNS,        TRNS, TRNS, TRNS, TRNS),
 	
-	/* layer 2 */
+//l2
 	KEYMAP(
                      F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
                      F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,
@@ -190,8 +193,18 @@ const uint8_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	F3,  F4,  TAB,   Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC, RBRC,    BSPC,  TRNS, TRNS, TRNS,  P7,    P8,   P9, PPLS,
 	F5,  F6,  LCTL,    A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,     NO,ENT, 		TRNS,        P4,    P5,   P6, PCMM,
 	F7,  F8,  LSFT,NO,   Z,   X,   C,   V,   B,   N,   M,   COMM, DOT, SLSH,       NO,RSFT,  TRNS, TRNS, TRNS,  P1,    P2,   P3, PENT,
-	F9, F10,  LGUI,     LALT,			SPC,						  FN1,       FN2,		TRNS,        NO,    P0, PDOT,  NO),
+	F9, F10,  LGUI,     LALT,			SPC,						  FN3,       FN2,		TRNS,        NO,    P0, PDOT,  NO),
 
+//L3	
+	KEYMAP(
+                     F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
+                     F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12,
+
+	F11,   F12,  GRV,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12, TRNS, TRNS,  TRNS, TRNS, TRNS,  NLCK, SLCK, TRNS, TRNS,
+	TRNS, TRNS,  CAPS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  INS, SLCK, PSCR,   UP, PGDN, 	 PGUP,  TRNS, TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS,
+	TRNS, TRNS,  TRNS,	TRNS, TRNS, TRNS, PAUS, TRNS, TRNS, TRNS, TRNS, HOME, LEFT, RGHT,	   NO,TRNS,	    TRNS,		  TRNS, TRNS, TRNS, TRNS,
+	TRNS, TRNS,  LSFT,NO, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, END, DOWN,     	   NO,RSFT,  TRNS, TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS,
+	TRNS, TRNS,  TRNS,		TRNS, 					TRNS,					FN3,	 	  FN2,	    TRNS,        TRNS, TRNS, TRNS, TRNS),
 /*
 	KEYMAP(
                      F13, F14, F15, F16, F17, F18, F19, F20, F21, F22, F23, F24,
