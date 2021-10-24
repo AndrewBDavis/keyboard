@@ -1,0 +1,43 @@
+cd /mnt/c/tmk_keyboard/keyboard/fc660c
+make clean
+make
+
+cd /mnt/c/tmk_keyboard/keyboard/infinity_chibios
+make -f Makefile clean
+make -f Makefile
+
+cd /mnt/c/tmk_keyboard/keyboard/copam
+make clean
+make
+
+cd /mnt/c/tmk_keyboard/keyboard/model_f_at
+make clean
+make
+
+cd /mnt/c/tmk_keyboard/keyboard/roadkit
+make clean
+make
+
+cd /mnt/c/tmk_keyboard/keyboard/atreus
+make clean
+make
+sudo avrdude -p atmega32u4 -c avr109 -U flash:w:atreus.hex -P /dev/ttyS4
+
+cd /mnt/c/tmk_keyboard/keyboard/atreus
+sudo avrdude -p atmega32u4 -c avr109 -U flash:w:atreus.hex -P /dev/ttyS4
+
+cd keyboard
+cd tmk_core_infinity
+cd alps66
+
+git init
+
+git add .
+
+git commit -m 'upload'
+
+git remote add origin https://github.com/AndrewBDavis/keyboard.git
+git remote add origin https://github.com/AndrewBDavis/tmk_core_infinity.git
+git remote add origin https://github.com/AndrewBDavis/alps66.git
+
+git push -u origin master
