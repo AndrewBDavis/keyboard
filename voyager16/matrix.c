@@ -57,10 +57,10 @@ uint8_t matrix_cols(void)
 
 void matrix_init(void)
 {
-    
-    
-    
-    
+    // To use PORTF disable JTAG with writing JTD bit twice within four cycles.
+    MCUCR |= (1<<JTD);
+    MCUCR |= (1<<JTD);
+
     // initialize row and col
     unselect_rows();
     init_cols();
@@ -100,13 +100,13 @@ uint8_t matrix_scan(void)
 
     return 1;
 }
-/*
+
 bool matrix_is_modified(void)
 {
     if (debouncing) return false;
     return true;
 }
-*/
+
 inline
 bool matrix_is_on(uint8_t row, uint8_t col)
 {
@@ -139,87 +139,60 @@ uint8_t matrix_key_count(void)
 }
 
 /* Column pin configuration
- * col: 0   1   2   3   4   5   6   7   8   9 
- * pin: B0  B1  B2  B3  B4  B5  B6  B7  C7  C6
+ * col: 0   1   2   3   4   5   6   7   8   9   10  11  12  13
+ * pin: F0  F1  E6  C7  C6  B6  D4  B1  B0  B5  B4  D7  D6  B3  (Rev.A)
+ * pin:                                 B7                      (Rev.B)
  */
  
-static void  init_cols(void) {
+static void  init_cols(void) 
+{
      // Input with pull-up(DDR:0, PORT:1)
-    DDRB  &= ~0b11111111;
-    PORTB |=  0b11111111;
-    DDRC  &= ~0b11000000;
-    PORTC |=  0b11000000;
+    DDRC  &= ~0b00110000;
+    PORTC |=  0b00110000;
+    DDRB  &= ~0b00001100;
+    PORTB |=  0b00001100;
 }
 
-/* Returns status of switches(1:on, 0:off) */
-static matrix_row_t read_cols(void) {
-    // Invert because PIN indicates 'switch on' with low(0) and 'off' with high(1)
-     return
-		(PINB & (1<<0) ? 0 : (1UL<<0))  |
-		(PINB & (1<<1) ? 0 : (1UL<<1))  |
-		(PINB & (1<<2) ? 0 : (1UL<<2))  |
-		(PINB & (1<<3) ? 0 : (1UL<<3))  |
-		(PINB & (1<<4) ? 0 : (1UL<<4))  |
-		(PINB & (1<<5) ? 0 : (1UL<<5))  |
-		(PINB & (1<<6) ? 0 : (1UL<<6))  |
-		(PINB & (1<<7) ? 0 : (1UL<<7))  |
-		(PINC & (1<<7) ? 0 : (1UL<<8))  |
-		(PINC & (1<<6) ? 0 : (1UL<<9))  ;
-}
+ static matrix_row_t read_cols(void)
+ {
+     return (PINC&(1<<4) ? 0 : (1<<0)) |
+            (PINC&(1<<5) ? 0 : (1<<1)) |
+            (PINB&(1<<2) ? 0 : (1<<2)) |
+            (PINB&(1<<3) ? 0 : (1<<3));
+ }
 
 /* Row pin configuration
- * row: 0   1   2   3   4   5   6   7   8   9
- * pin: D0  D1  D2  D3  D4  D5  D6  C2  C4  C5
+ * row: 0   1   2   3   4
+ * pin: D0  D1  D2  D3  D5
  */
-static void unselect_rows(void) {
-    DDRD  &= ~0b01111111;
-    PORTD &= ~0b01111111;
-    DDRC  &= ~0b00110100;
-    PORTC &= ~0b00110100;
-}
+ static void unselect_rows(void)
+ {
+     // Hi-Z(DDR:0, PORT:0) to unselect
+     DDRD  &= ~0b00000110;
+     PORTD &= ~0b00000110;
+     DDRC  &= ~0b11000000;
+     PORTC &= ~0b11000000;
+ }
 
-static void select_row(uint8_t row) {
-    // Output low(DDR:1, PORT:0) to select
-    switch (row) {
-		case 0:
-            DDRD  |= (1<<0); 
-            PORTD &= ~(1<<0);
-            break;
-		case 1:
-            DDRD  |= (1<<1);
-            PORTD &= ~(1<<1);
-            break;
-		case 2:
-            DDRD  |= (1<<2);
-            PORTD &= ~(1<<2);
-            break;
-		case 3:
-            DDRD  |= (1<<3);
-            PORTD &= ~(1<<3);
-            break;
-		case 4:
-            DDRD  |= (1<<4);
-            PORTD &= ~(1<<4);
-            break;
-		case 5:
-            DDRD  |= (1<<5);
-            PORTD &= ~(1<<5);
-            break;
-		case 6:
-            DDRD  |= (1<<6);
-            PORTD &= ~(1<<6);
-            break;
-		case 7:
-            DDRC  |= (1<<2);
-            PORTC &= ~(1<<2);
-            break;
-		case 8:
-            DDRC  |= (1<<4);
-            PORTC &= ~(1<<4);
-            break;
-		case 9:
-            DDRC  |= (1<<5);
-            PORTC &= ~(1<<5);
-            break;
-    }
-}
+ static void select_row(uint8_t row)
+ {
+     // Output low(DDR:1, PORT:0) to select
+     switch (row) {
+         case 0:
+             DDRD  |= (1<<1);
+             PORTD &= ~(1<<1);
+             break;
+         case 1:
+             DDRD  |= (1<<2);
+             PORTD &= ~(1<<2);
+             break;
+         case 2:
+             DDRC  |= (1<<6);
+             PORTC &= ~(1<<6);
+             break;
+         case 3:
+             DDRC  |= (1<<7);
+             PORTC &= ~(1<<7);
+             break;
+     }
+ }

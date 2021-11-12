@@ -39,23 +39,32 @@
 #----------------------------------------------------------------------------
 
 # Target file name (without extension).
-TARGET ?= alps66
+TARGET ?= voyager16
 
 # Directory common source filess exist
-TMK_DIR ?= ../../tmk_core
+TMK_DIR = ../../tmk_core
 
 # Directory keyboard dependent files exist
-TARGET_DIR ?= .
+TARGET_DIR = .
 
 # project specific files
-SRC ?=	matrix.c \
+SRC =  matrix.c \
+    backlight.c \
 	led.c
 
-CONFIG_H ?= config.h
+ifdef KEYMAP
+    SRC := keymap_$(KEYMAP).c $(SRC)
+else
+    SRC := keymap.c $(SRC)
+endif
+
+CONFIG_H = config.h
 
 
 # MCU name
-MCU ?= atmega32u2
+#MCU = at90usb1287
+#MCU = atmega32u4
+MCU = atmega32u2
 
 # Processor frequency.
 #     This will define a symbol, F_CPU, in all source code files equal to the
@@ -68,14 +77,14 @@ MCU ?= atmega32u2
 #     does not *change* the processor frequency - it should merely be updated to
 #     reflect the processor speed set externally so that the code can use accurate
 #     software delays.
-F_CPU ?= 16000000
+F_CPU = 16000000
 
 
 #
 # LUFA specific
 #
 # Target architecture (see library "Board Types" documentation).
-ARCH ?= AVR8
+ARCH = AVR8
 
 # Input clock frequency.
 #     This will define a symbol, F_USB, in all source code files equal to the
@@ -88,7 +97,7 @@ ARCH ?= AVR8
 #
 #     If no clock division is performed on the input clock inside the AVR (via the
 #     CPU clock adjust registers or the clock division fuses), this will be equal to F_CPU.
-F_USB ?= $(F_CPU)
+F_USB = $(F_CPU)
 
 # Interrupt driven control endpoint task(+60)
 OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
@@ -100,41 +109,20 @@ OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
 #   Atmel DFU loader 4096
 #   LUFA bootloader  4096
 #   USBaspLoader     2048
-BOOTLOADER_SIZE ?= 4096
-OPT_DEFS += -DBOOTLOADER_SIZE=$(BOOTLOADER_SIZE)
+OPT_DEFS += -DBOOTLOADER_SIZE=4096
 
 
 # Build Options
 #   comment out to disable the options.
 #
-BOOTMAGIC_ENABLE ?= yes	# Virtual DIP switch configuration(+1000)
-MOUSEKEY_ENABLE ?= yes	# Mouse keys(+4700)
-EXTRAKEY_ENABLE ?= yes	# Audio control and System control(+450)
-CONSOLE_ENABLE ?= yes	# Console for debug(+400)
-COMMAND_ENABLE ?= yes    # Commands for debug and configuration
-#SLEEP_LED_ENABLE ?= yes  # Breathing sleep LED during USB suspend
-NKRO_ENABLE ?= yes	# USB Nkey Rollover
-#ACTIONMAP_ENABLE ?= yes	# Use 16bit action codes in keymap instead of 8bit keycodes
-
-
-
-# Keymap file
-
-#ifeq (yes,$(strip $(UNIMAP_ENABLE)))
-#    KEYMAP_FILE = unimap
-#else
-#	ifeq (yes,$(strip $(ACTIONMAP_ENABLE)))
-#		KEYMAP_FILE = actionmap
-#	else
-#		KEYMAP_FILE = keymap
-#	endif
-#endif
-
-ifdef KEYMAP
-    SRC := keymap_$(KEYMAP).c $(SRC)
-else
-    SRC := keymap.c $(SRC)
-endif
+BOOTMAGIC_ENABLE = yes	# Virtual DIP switch configuration(+1000)
+MOUSEKEY_ENABLE = yes	# Mouse keys(+4700)
+EXTRAKEY_ENABLE = yes	# Audio control and System control(+450)
+CONSOLE_ENABLE = yes	# Console for debug(+400)
+COMMAND_ENABLE = yes    # Commands for debug and configuration
+#SLEEP_LED_ENABLE = yes  # Breathing sleep LED during USB suspend
+NKRO_ENABLE = yes	# USB Nkey Rollover - not yet supported in LUFA
+BACKLIGHT_ENABLE = yes
 
 
 # Optimize size but this may cause error "relocation truncated to fit"
