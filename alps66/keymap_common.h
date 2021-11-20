@@ -28,12 +28,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "debug.h"
 #include "keymap.h"
 
+/*Note that positions of K41 and K91 were switched from Rev 1.0 to Rev 2.0 */
+
 #define KEYMAP( \
     K36, K37, K46, K47, K56, K57, K66, K67, K76, K77, K06, K07, K17, K26, K90, K27, \
     K34, K35, K44, K45, K54, K55, K64, K65, K75, K05, K15, K16, K25, K24, K80, \
     K32, K33, K43, K52, K53, K63, K73, K74, K03, K04, K13, K14, K23, \
-    K31, K41, K42, K51, K61, K62, K71, K72, K01, K02, K11, K12, K21, K22, \
-    K30, K40, K50,           K60,                K91, K70, K00, K10, K20, K81  \
+    K31, K91, K42, K51, K61, K62, K71, K72, K01, K02, K11, K12, K21, K22, \
+    K30, K40, K50,           K60,                K41, K70, K00, K10, K20, K81  \
 ) { \
     { KC_##K00, KC_##K01, KC_##K02, KC_##K03, KC_##K04, KC_##K05, KC_##K06, KC_##K07, KC_NO,    KC_NO,   }, \
     { KC_##K10, KC_##K11, KC_##K12, KC_##K13, KC_##K14, KC_##K15, KC_##K16, KC_##K17, KC_NO,    KC_NO,   }, \
