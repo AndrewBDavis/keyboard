@@ -1,7 +1,7 @@
 #include "keymap_common.h"
 
 /*
-cd /mnt/c/tmk_keyboard/keyboard/alps66
+cd /mnt/c/tmk_keyboard/keyboard/alps66/v1
 make clean
 make
 */
