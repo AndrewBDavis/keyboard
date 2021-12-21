@@ -40,6 +40,7 @@ KEYMAP(
 	TRNS, TRNS,   TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,           TRNS, 	P4,	P5,   P6, TRNS, \
 	TRNS, TRNS,     TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,               TRNS, 	P1,  P2,   P3,       \
 	TRNS, TRNS, TRNS, TRNS,                   TRNS,                               TRNS, TRNS, TRNS, TRNS, 	P0,      PDOT, TRNS  ),
+};
 	
 
 /*
