@@ -1,45 +1,5 @@
-#----------------------------------------------------------------------------
-# On command line:
-#
-# make all = Make software.
-#
-# make clean = Clean out built project files.
-#
-# make coff = Convert ELF to AVR COFF.
-#
-# make extcoff = Convert ELF to AVR Extended COFF.
-#
-# make program = Download the hex file to the device.
-#                Please customize your programmer settings(PROGRAM_CMD)
-#
-# make teensy = Download the hex file to the device, using teensy_loader_cli.
-#               (must have teensy_loader_cli installed).
-#
-# make dfu = Download the hex file to the device, using dfu-programmer (must
-#            have dfu-programmer installed).
-#
-# make flip = Download the hex file to the device, using Atmel FLIP (must
-#             have Atmel FLIP installed).
-#
-# make dfu-ee = Download the eeprom file to the device, using dfu-programmer
-#               (must have dfu-programmer installed).
-#
-# make flip-ee = Download the eeprom file to the device, using Atmel FLIP
-#                (must have Atmel FLIP installed).
-#
-# make debug = Start either simulavr or avarice as specified for debugging,
-#              with avr-gdb or avr-insight as the front end for debugging.
-#
-# make filename.s = Just compile filename.c into the assembler code only.
-#
-# make filename.i = Create a preprocessed source file for use in submitting
-#                   bug reports to the GCC project.
-#
-# To rebuild project do "make clean" then "make all".
-#----------------------------------------------------------------------------
-
 # Target file name (without extension).
-TARGET ?= alps66
+TARGET ?= alps64_ad
 
 # Directory common source filess exist
 TMK_DIR ?= ../../tmk_core
@@ -108,15 +68,18 @@ OPT_DEFS += -DBOOTLOADER_SIZE=$(BOOTLOADER_SIZE)
 #   comment out to disable the options.
 #
 BOOTMAGIC_ENABLE ?= yes	# Virtual DIP switch configuration(+1000)
-#MOUSEKEY_ENABLE ?= yes	# Mouse keys(+4700)
+MOUSEKEY_ENABLE ?= yes	# Mouse keys(+4700)
 EXTRAKEY_ENABLE ?= yes	# Audio control and System control(+450)
-#CONSOLE_ENABLE ?= yes	# Console for debug(+400)
+CONSOLE_ENABLE ?= yes	# Console for debug(+400)
 COMMAND_ENABLE ?= yes    # Commands for debug and configuration
 #SLEEP_LED_ENABLE ?= yes  # Breathing sleep LED during USB suspend
-NKRO_ENABLE ?= yes	# USB Nkey Rollover
+#NKRO_ENABLE ?= yes	# USB Nkey Rollover
 #ACTIONMAP_ENABLE ?= yes	# Use 16bit action codes in keymap instead of 8bit keycodes
 
 
+#
+# Keymap file
+#
 ifdef KEYMAP
     SRC := keymap_$(KEYMAP).c $(SRC)
 else
