@@ -39,7 +39,7 @@
 #----------------------------------------------------------------------------
 
 # Target file name (without extension).
-TARGET ?= voyager16
+TARGET ?= ad16
 
 # Directory common source filess exist
 TMK_DIR = ../../tmk_core

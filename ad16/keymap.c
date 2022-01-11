@@ -1,7 +1,7 @@
 #include "keymap_common.h"
 
 /*
-cd /mnt/c/tmk_keyboard/keyboard/voyager16
+cd /mnt/c/tmk_keyboard/keyboard/ad16
 make clean
 make
 */
