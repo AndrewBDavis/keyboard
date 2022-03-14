@@ -1,0 +1,71 @@
+   1               		.file	"keymap.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               	.global	fn_actions
+  11               		.section	.progmem.data.fn_actions,"a",@progbits
+  14               	fn_actions:
+  15 0000 0000      		.zero	2
+  16 0002 028A      		.word	-30206
+  17 0004 00D2      		.word	-11776
+  18 0006 00D1      		.word	-12032
+  19 0008 00D0      		.word	-12288
+  20 000a 00D0      		.word	-12288
+  21               	.global	keymaps
+  22               		.section	.progmem.data.keymaps,"a",@progbits
+  25               	keymaps:
+  26 0000 5F        		.byte	95
+  27 0001 60        		.byte	96
+  28 0002 61        		.byte	97
+  29 0003 57        		.byte	87
+  30 0004 5C        		.byte	92
+  31 0005 5D        		.byte	93
+  32 0006 5E        		.byte	94
+  33 0007 56        		.byte	86
+  34 0008 59        		.byte	89
+  35 0009 5A        		.byte	90
+  36 000a 5B        		.byte	91
+  37 000b 58        		.byte	88
+  38 000c 62        		.byte	98
+  39 000d 63        		.byte	99
+  40 000e C1        		.byte	-63
+  41 000f 2A        		.byte	42
+  42 0010 53        		.byte	83
+  43 0011 C2        		.byte	-62
+  44 0012 C3        		.byte	-61
+  45 0013 A9        		.byte	-87
+  46 0014 C4        		.byte	-60
+  47 0015 52        		.byte	82
+  48 0016 C5        		.byte	-59
+  49 0017 AA        		.byte	-86
+  50 0018 50        		.byte	80
+  51 0019 51        		.byte	81
+  52 001a 4F        		.byte	79
+  53 001b 01        		.byte	1
+  54 001c 01        		.byte	1
+  55 001d 01        		.byte	1
+  56 001e 01        		.byte	1
+  57 001f 01        		.byte	1
+  58               		.text
+  59               	.Letext0:
+  60               		.file 1 "/usr/lib/avr/include/stdint.h"
+  61               		.file 2 "../../tmk_core/common/keycode.h"
+  62               		.file 3 "../../tmk_core/common/action_code.h"
+  63               		.file 4 "../../tmk_core/protocol/lufa/LUFA-git/LUFA/Drivers/USB/Core/USBTask.h"
+  64               		.file 5 "keymap.c"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 keymap.c
+     /tmp/ccWNEVqY.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccWNEVqY.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccWNEVqY.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccWNEVqY.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccWNEVqY.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccWNEVqY.s:14     .progmem.data.fn_actions:0000000000000000 fn_actions
+     /tmp/ccWNEVqY.s:25     .progmem.data.keymaps:0000000000000000 keymaps
+
+NO UNDEFINED SYMBOLS
