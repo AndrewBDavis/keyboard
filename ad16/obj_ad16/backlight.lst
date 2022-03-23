@@ -1,0 +1,76 @@
+   1               		.file	"backlight.c"
+   2               	__SP_H__ = 0x3e
+   3               	__SP_L__ = 0x3d
+   4               	__SREG__ = 0x3f
+   5               	__tmp_reg__ = 0
+   6               	__zero_reg__ = 1
+   7               		.text
+   8               	.Ltext0:
+   9               		.cfi_sections	.debug_frame
+  10               		.section	.text.backlight_set,"ax",@progbits
+  11               	.global	backlight_set
+  13               	backlight_set:
+  14               	.LFB0:
+  15               		.file 1 "backlight.c"
+   1:backlight.c   **** /*
+   2:backlight.c   **** Copyright 2012 Jun Wako <wakojun@gmail.com>
+   3:backlight.c   **** 
+   4:backlight.c   **** This program is free software: you can redistribute it and/or modify
+   5:backlight.c   **** it under the terms of the GNU General Public License as published by
+   6:backlight.c   **** the Free Software Foundation, either version 2 of the License, or
+   7:backlight.c   **** (at your option) any later version.
+   8:backlight.c   **** 
+   9:backlight.c   **** This program is distributed in the hope that it will be useful,
+  10:backlight.c   **** but WITHOUT ANY WARRANTY; without even the implied warranty of
+  11:backlight.c   **** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  12:backlight.c   **** GNU General Public License for more details.
+  13:backlight.c   **** 
+  14:backlight.c   **** You should have received a copy of the GNU General Public License
+  15:backlight.c   **** along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  16:backlight.c   **** */
+  17:backlight.c   **** 
+  18:backlight.c   **** #include <avr/io.h>
+  19:backlight.c   **** #include "backlight.h"
+  20:backlight.c   **** 
+  21:backlight.c   **** 
+  22:backlight.c   **** void backlight_set(uint8_t level) {
+  16               		.loc 1 22 0
+  17               		.cfi_startproc
+  18               	.LVL0:
+  19               	/* prologue: function */
+  20               	/* frame size = 0 */
+  21               	/* stack size = 0 */
+  22               	.L__stack_usage = 0
+  23:backlight.c   ****     DDRB |= (1<<7);
+  23               		.loc 1 23 0
+  24 0000 279A      		sbi 0x4,7
+  24:backlight.c   **** 
+  25:backlight.c   ****     if (level) { // Backlight on
+  25               		.loc 1 25 0
+  26 0002 8823      		tst r24
+  27 0004 01F0      		breq .L2
+  26:backlight.c   ****         PORTB |= (1<<7);
+  28               		.loc 1 26 0
+  29 0006 2F9A      		sbi 0x5,7
+  30 0008 0895      		ret
+  31               	.L2:
+  27:backlight.c   ****     } else { // Backlight off
+  28:backlight.c   ****         PORTB &= ~(1<<7);
+  32               		.loc 1 28 0
+  33 000a 2F98      		cbi 0x5,7
+  34 000c 0895      		ret
+  35               		.cfi_endproc
+  36               	.LFE0:
+  38               		.text
+  39               	.Letext0:
+  40               		.file 2 "/usr/lib/avr/include/stdint.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 backlight.c
+     /tmp/ccqHo9co.s:2      *ABS*:000000000000003e __SP_H__
+     /tmp/ccqHo9co.s:3      *ABS*:000000000000003d __SP_L__
+     /tmp/ccqHo9co.s:4      *ABS*:000000000000003f __SREG__
+     /tmp/ccqHo9co.s:5      *ABS*:0000000000000000 __tmp_reg__
+     /tmp/ccqHo9co.s:6      *ABS*:0000000000000001 __zero_reg__
+     /tmp/ccqHo9co.s:13     .text.backlight_set:0000000000000000 backlight_set
+
+NO UNDEFINED SYMBOLS

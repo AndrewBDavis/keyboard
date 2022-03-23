@@ -19,16 +19,30 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "stdint.h"
 #include "led.h"
 
+void hook_layer_change(uint32_t layer_state)
+{
+    // lights LED on Caps when layer 2 is enabled
+    if (layer_state & (1L<<2)) {
+	PORTC |= (1<<5);
+    } 
+    else {
+	PORTC &=  ~(1<<5);
+    }
+}																								
 
 void led_set(uint8_t usb_led)
 {
+/*
     if (usb_led & (1<<USB_LED_CAPS_LOCK)) {
         // output high
         DDRC |= (1<<5);
         PORTC |= (1<<5);
-    } else {
+    } 
+    else {
         // Hi-Z
         DDRC &= ~(1<<5);
         PORTC &= ~(1<<5);
     }
+*/
 }
+

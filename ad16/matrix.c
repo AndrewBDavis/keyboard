@@ -57,10 +57,6 @@ uint8_t matrix_cols(void)
 
 void matrix_init(void)
 {
-    // To use PORTF disable JTAG with writing JTD bit twice within four cycles.
-    MCUCR |= (1<<JTD);
-    MCUCR |= (1<<JTD);
-
     // initialize row and col
     unselect_rows();
     init_cols();
@@ -70,6 +66,7 @@ void matrix_init(void)
         matrix[i] = 0;
         matrix_debouncing[i] = 0;
     }
+
 }
 
 uint8_t matrix_scan(void)
@@ -186,7 +183,7 @@ static void  init_cols(void)
              PORTB &= ~(1<<6);
              break;
          case 2:
-             DDRD  |= (1<4);
+             DDRD  |= (1<<4);
              PORTD &= ~(1<<4);
              break;
          case 3:
