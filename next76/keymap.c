@@ -23,7 +23,7 @@ KEYMAP(
 	
 	/* layer 1 (function layer) */
 KEYMAP(
-	TRNS, TRNS, TRNS, TRNS,  GRV,    F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,   TRNS, \
+	TRNS, TRNS, TRNS, NLCK,  GRV,    F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,   TRNS, \
 	TRNS, TRNS, TRNS, TRNS,  CAPS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, PSCR, SLCK, PAUS,   UP, PGDN,  PGUP, \
 	TRNS, TRNS, TRNS, TRNS,  TRNS,   VOLD, VOLU, MUTE, TRNS, TRNS, TRNS, TRNS, TRNS, HOME, LEFT, RGHT,	     TRNS, \
 	TRNS, TRNS, TRNS, TRNS,  LSFT,    TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  END, DOWN,		     RSFT, \

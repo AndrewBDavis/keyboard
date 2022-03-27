@@ -1,10 +1,11 @@
 #include "keymap_common.h"
 /*
+DOUBLE TAP RESET
 cd /mnt/c/tmk_keyboard/keyboard/atreus
 make
-sudo avrdude -p atmega32u4 -c avr109 -U flash:w:atreus.hex -P /dev/ttyS4
+sudo avrdude -p atmega32u4 -c avr109 -U flash:w:atreus.hex -P /dev/ttyS3
 
-/dev/ttyS4 refers to COMM Port 4, only applicable if using Bash Windows Subsystem for Linux
+/dev/ttyS4 refers to COMM Port 3, only applicable if using Bash Windows Subsystem for Linux
 
 make clean
 */
@@ -25,16 +26,16 @@ KEYMAP(
 	
 	/* layer 1 */	
 KEYMAP(	
-	GRV,     7,    8,    9,    0,				  LBRC, RBRC,   UP, TRNS,  DEL, \
-	TRNS,    4,    5,    6, PSCR,	 			  HOME, LEFT, DOWN, RGHT, PGUP, \
-	TRNS,    1,    2,    3, SLCK, 			   END,  INS, TRNS, TRNS, PGDN, \
-	FN2,  CAPS,    0, TRNS, TRNS, TRNS,  	 LALT, TRNS, TRNS,  EQL, TRNS, TRNS),
+	GRV,    7,    8,    9,  EQL,			  	  TRNS, TRNS,   UP,  INS,  DEL, \
+	MINS,   4,    5,    6, PSLS,	 			  TRNS, LEFT, DOWN, RGHT, PGUP, \
+	PPLS,   1,    2,    3, PAST, 			       HOME,  END, LBRC, RBRC, PGDN, \
+	ENT, CAPS,    0, TRNS, TRNS, TRNS,  	 LALT, TRNS, TRNS, TRNS, TRNS,  FN2),
 	
 	/* layer 2 */	
 KEYMAP(	
-	TRNS, TRNS, TRNS, TRNS, TRNS,					  F9,  F10,  F11,  F12, TRNS, \
-	TRNS, TRNS, TRNS,  FN9, TRNS,					  F5,   F6,   F7,   F8, TRNS, \
-	TRNS, TRNS, TRNS, TRNS, TRNS,					  F1,   F2,   F3,   F4, TRNS, \
+	F9,    F10,  F11,  F12, TRNS, 				TRNS, TRNS, PSCR, SLCK, PAUS, \
+	F5,     F6,   F7,   F8, TRNS,   				TRNS, TRNS, TRNS, TRNS, TRNS, \
+	F1,     F2,   F3,   F4, TRNS,   				TRNS, TRNS, TRNS, TRNS, TRNS, \
 	TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,	    LALT, TRNS, TRNS, TRNS, TRNS, TRNS),
 	
 	/* layer 3 */	
