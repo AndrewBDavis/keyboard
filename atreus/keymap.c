@@ -10,8 +10,8 @@ sudo avrdude -p atmega32u4 -c avr109 -U flash:w:atreus.hex -P /dev/ttyS3
 make clean
 */
 const action_t PROGMEM fn_actions[] = {
-	[1] = ACTION_LAYER_MOMENTARY(1),  // to Fn overlay
-	[2] = ACTION_LAYER_MOMENTARY(2),  // switch to layer 2
+	[1] = ACTION_LAYER_MOMENTARY(1),
+	[2] = ACTION_LAYER_MOMENTARY(2),
 	[9] = ACTION_FUNCTION(BOOTLOADER)
 };
   
@@ -26,24 +26,24 @@ KEYMAP(
 	
 	/* layer 1 */	
 KEYMAP(	
-	GRV,    7,    8,    9,  EQL,			  	  TRNS, TRNS,   UP,  INS,  DEL, \
-	MINS,   4,    5,    6, PSLS,	 			  TRNS, LEFT, DOWN, RGHT, PGUP, \
-	PPLS,   1,    2,    3, PAST, 			       HOME,  END, LBRC, RBRC, PGDN, \
-	ENT, CAPS,    0, TRNS, TRNS, TRNS,  	 LALT, TRNS, TRNS, TRNS, TRNS,  FN2),
+	GRV,     7,    8,    9,  EQL,			  	  TRNS, TRNS,   UP,  INS,  DEL, \
+	MINS,    4,    5,    6, PSLS,	 			  TRNS, LEFT, DOWN, RGHT, PGUP, \
+	PPLS,    1,    2,    3, PAST, 			  HOME,  END, LBRC, RBRC, PGDN, \
+	ENT,  CAPS,    0, TRNS, TRNS, TRNS,  	 LALT, TRNS, TRNS, TRNS, TRNS,  FN2),
 	
 	/* layer 2 */	
 KEYMAP(	
-	F9,    F10,  F11,  F12, TRNS, 				TRNS, TRNS, PSCR, SLCK, PAUS, \
-	F5,     F6,   F7,   F8, TRNS,   				TRNS, TRNS, TRNS, TRNS, TRNS, \
-	F1,     F2,   F3,   F4, TRNS,   				TRNS, TRNS, TRNS, TRNS, TRNS, \
-	TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,	    LALT, TRNS, TRNS, TRNS, TRNS, TRNS),
+	F9,    F10,  F11,  F12, TRNS, 			  TRNS, TRNS, PSCR, SLCK, PAUS, \
+	F5,     F6,   F7,   F8, TRNS,   			  TRNS, TRNS, TRNS, TRNS, TRNS, \
+	F1,     F2,   F3,   F4, TRNS,   			  TRNS, TRNS, TRNS, TRNS, TRNS, \
+	FN9,  TRNS, TRNS, TRNS, TRNS, TRNS,	 LALT, TRNS, TRNS, TRNS, TRNS, TRNS),
 	
 	/* layer 3 */	
 KEYMAP(	
-	TRNS, TRNS, TRNS, TRNS, TRNS,					TRNS, TRNS, TRNS, TRNS, TRNS, \
-	TRNS, TRNS, TRNS, TRNS, TRNS,					TRNS, TRNS, TRNS, TRNS, TRNS, \
-	TRNS, TRNS, TRNS, TRNS, TRNS,					TRNS, TRNS, TRNS, TRNS, TRNS, \
-	TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,	    TRNS, TRNS, TRNS, TRNS, TRNS, TRNS),
+	TRNS, TRNS, TRNS, TRNS, TRNS,				  TRNS, TRNS, TRNS, TRNS, TRNS, \
+	TRNS, TRNS, TRNS, TRNS, TRNS,				  TRNS, TRNS, TRNS, TRNS, TRNS, \
+	TRNS, TRNS, TRNS, TRNS, TRNS,				  TRNS, TRNS, TRNS, TRNS, TRNS, \
+	TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,	 TRNS, TRNS, TRNS, TRNS, TRNS, TRNS),
 };
 
 
