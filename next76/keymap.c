@@ -29,7 +29,7 @@ KEYMAP(
 	TRNS, TRNS, TRNS, TRNS,  LSFT,    TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  END, DOWN,		     RSFT, \
 	TRNS, TRNS, TRNS, TRNS,  TRNS, TRNS,                       TRNS,					   TRNS, 		     TRNS  ),
 	
-	/* layer 2 (empty layer) */
+	/* layer 2 (numpad layer) */
 KEYMAP(
 	TRNS, TRNS, TRNS, TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS,  TRNS, \
 	TRNS,   P7,   P8,   P9,  TRNS,  TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
